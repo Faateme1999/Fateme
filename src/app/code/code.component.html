@@ -1,0 +1,50 @@
+<div class="container"> 
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-lg-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" (click)="navigate()">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  </svg>
+            </div>
+            <div class="col-lg-1 image" >
+                <img src="https://www.digikala.com/statics/img/svg/logo.svg" alt="لوگوی دیجی کالا">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <h1>کد تاییدراوارد کنید</h1>
+        </div>
+        <div class="row">
+             <div class="form-group">
+             <label for="code">کد تایید برای شماره {{phoneNumber}} پیامک شد </label>
+            <input type="text" id="code" class="form-control mt-4" formControlName="code">
+           <div  class="alert-danger" *ngIf="code?.touched && code?.invalid">
+            <div *ngIf="code?.errors?.['checkCode']">
+کد وارد شده اشتباه است      
+            </div>
+            <div *ngIf="code?.errors?.['pattern']">
+ کد باید ۴ رقمی باشد    
+                            </div>
+           </div>
+                <div *ngIf="expired">
+                دریافت مجدد کد از طریق 
+                <a href (click)=again()>پیامک</a>
+                </div>
+            </div>
+    
+    </div>    
+    <div class="row" *ngIf="try">
+        <div>  {{ minutes }}:{{ seconds }}
+            مانده تا دریافت مجدد 
+            <a href="#">کد</a>
+        </div>
+    </div>
+    <div class="row mt-4">
+<button class="btn btn-danger" (click)="productnavigate()"> تایید</button>
+    </div>
+
+
+    </form>
+</div>
+
+
+

@@ -1,0 +1,51 @@
+<div class="container">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col align-self-center image">
+                <img src="https://www.digikala.com/statics/img/svg/logo.svg" alt="لوگوی دیجی کالا" (click)="productNavigate()">
+            </div>
+        </div>
+        <div class="row">
+            <h1>ورود | ثبت نام</h1>
+        </div>
+        <div class="row mt-5">
+            <p>سلام!</p>
+        </div>
+        <div class="row">
+            <div  class="form-group">
+                <label for="phone"> لطفا شماره موبایل یا ایمیل خود را وارد کنید </label>
+                <input type="text" id="phone" class="form-control mt-4" formControlName="phone" [(ngModel)]="phoneNumber">
+                <div class="alert-danger mt-2" *ngIf="phone?.touched && phone?.invalid">
+                    <p *ngIf="phone?.errors?.['required']">
+                        لطفا این قسمت را خالی نگذارید
+                    </p>
+                    <div *ngIf="phone?.errors?.['pattern']">
+                        پترن را رعایت کنید
+                     </div>
+                     <div *ngIf="phone?.errors?.['checkPhone']">
+                        شماره موبایل نادرست است
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <button class="btn btn-danger" (click)="submit()" [disabled]="form.untouched">ورود</button>
+        </div>
+        <div class="row mt-4">
+        <p>
+            ورود شما به معنی پذیرش 
+            <a href="#">شرایط</a>
+            و
+            <a href="#">قوانین حریم خصوصی</a> 
+            است
+        </p>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+    

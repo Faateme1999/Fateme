@@ -1,0 +1,35 @@
+.container{
+    color: black;
+    direction: rtl;
+    transform: translateY(50%); 
+    width: 550px;
+    padding: 50px;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+}
+
+h1{
+    font-size:x-large;
+}
+
+.alert-danger{
+  color: rgb(158, 19, 47);
+}
+
+input.ng-invalid.ng-touched {
+  border: red 1px solid;
+}
+
+a{
+    text-decoration:none;
+}
+
+.image{
+  display: flex;
+  justify-content: center;
+}
+
+img{
+  width: 150px;
+  height: 40px;
+}
