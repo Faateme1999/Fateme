@@ -50,3 +50,15 @@ a:hover{
  .rate-cost{
     direction: ltr;
  }
+
+ .btnlogin{
+    margin: 0px 1100px 0px 0px;
+ }
+
+.countCart{
+    /* background-color: red; */
+    color: red;
+    position: absolute;
+    text-align: center;
+    padding-top: 15px;
+}

@@ -88,9 +88,9 @@ export class CodeComponent  implements OnInit {
 
 
 
-  productnavigate(){
+  historynavigate(){
     if(this.form.valid){
-  this.router.navigate(['/product']);
+  this.router.navigate(['/history']);
     }
 
     if(this.form.pending){

@@ -17,8 +17,13 @@ constructor(private HistoryService:HistoryService,private rout:ActivatedRoute, p
 }
 
 
+
+loginNavigate(){
+  this.router.navigate(['/login']);
+}
+
 ShopNavigate(){
-  this.router.navigate(['/code']);
+  this.router.navigate(['/cart']);
 }
 
 
@@ -37,5 +42,18 @@ else if(value==='login'){
 }
 
 
+
+user="";
+navbarUser(value:string){
+  if(value==='history'){
+    this.router.navigate(['/history']);
+  }
+else if(value==='product'){
+  this.router.navigate(['/product']);
+}
+else if(value==='login'){
+  this.router.navigate(['/login']);
+}
+}
 
 }

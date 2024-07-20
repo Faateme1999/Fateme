@@ -1,0 +1,31 @@
+.all{
+    direction: rtl;
+    border: 1px solid lightgray;
+    width: 1400px;
+    padding: 20px;
+    margin: auto;
+    
+}
+
+ul{
+    list-style: none;
+}
+
+
+.btnlogin{
+    margin: 0px 1100px 0px 0px;
+ }
+
+ 
+ .img{
+    width: 170px;
+    height: 170px;
+  }
+ 
+
+.countCart{
+    background-color: red;
+    color: white;
+    position: absolute;
+    text-align: center;
+}

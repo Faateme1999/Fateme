@@ -47,7 +47,6 @@ console.log(id);
 
 
 
-
   //   this.activeRoute.paramMap.subscribe(params=>{
   //     this.id=params.get('id');
   //     this.products= this.ProductService.getProductData(this.id);
@@ -56,8 +55,6 @@ console.log(id);
   //   })
 
   
-
-
 
 
 //      this.ActivatedRoute.params.subscribe(params=>{
@@ -80,7 +77,9 @@ console.log(id);
     
   // }
 
+}
 
+}
 
   
 
@@ -92,6 +91,3 @@ console.log(id);
 //   cost:string="";
 //   rate:string="";
 // }
-}
-
-}

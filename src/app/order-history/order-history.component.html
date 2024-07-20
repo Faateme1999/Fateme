@@ -12,31 +12,42 @@
             <option  value="">مرجوع شده</option>
             <option  value="product">جاری</option>
           </select> 
-
-      <ul class="mr-auto row mt-3">
-        <li class="nav-item col-lg-1">
-          <a class="nav-link" routerLink="/product" routerLinkActive="active current">جاری</a>
-        </li>
-        <li class="nav-item col-lg-1">
-          <a class="nav-link" routerLink="/history" routerLinkActive="active current">تحویل شده</a>
-        </li>
-        <li class="nav-item col-lg-1">
-          <a class="nav-link" routerLink="/product" routerLinkActive="active current">مرجوع شده</a>
-        </li>
-        <li class="nav-item col-lg-1">
-            <a class="nav-link" routerLink="#" routerLinkActive="active current">لغو شده</a>
-          </li>
-
-      <button class="col-lg-2 btn btn-outline-secondary" routerLink="/login">
-        ورود|ثبت نام
-      </button>
-      <button (click)="ShopNavigate()" class="col-lg-1 btn btn-light">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-        </svg> 
-      </button>
-    </ul>
+          <ul class="mr-auto row mt-3">
+            <li class="nav-item col-lg-1">
+              <a class="nav-link" routerLink="/product" routerLinkActive="active current">محصولات</a>
+            </li>
+            <li class="nav-item col-lg-1">
+              <a class="nav-link" routerLink="#" routerLinkActive="active current">جاری</a>
+            </li>
+            <li class="nav-item col-lg-1">
+              <a class="nav-link" routerLink="/history" routerLinkActive="active current">تحویل شده</a>
+            </li>
+            <li class="nav-item col-lg-1">
+              <a class="nav-link" routerLink="/product" routerLinkActive="active current">مرجوع شده</a>
+            </li>
+            <li class="nav-item col-lg-1">
+                <a class="nav-link" routerLink="#" routerLinkActive="active current">لغو شده</a>
+              </li>
+         <div class="col-lg-2 btnlogin">
+              <button (click)="loginNavigate()" class="btn btn-outline-secondary">
+                ورود|ثبت نام
+              </button>
+              <button (click)="ShopNavigate()" class="btn btn-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                </svg> 
+              </button>
+            </div>
+          </ul>
       <hr>
+
+      <select class="form-select" (change)="navbarUser(user)" [(ngModel)]="user">
+        <option value="#">امتیاز دیجی کلاب</option>
+        <option  value="#">دیجی پلاس</option>
+        <option  value="history">سفارش ها</option>
+        <option  value="product"> لیست ها</option>
+        <option  value="login"> خروج از حساب کاربری</option>
+      </select> 
 
 
 <div class="ordered">

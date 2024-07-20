@@ -24,6 +24,9 @@ export class LoginComponent {
       // confirmPhoneValidator.checkPhone,
     ]),
   });
+  
+
+  phoneNumber:string="";
 
   submit(){
     console.log(this.form);
@@ -53,10 +56,6 @@ export class LoginComponent {
 
 
 
-
-
-
-  phoneNumber:string="";
   
 
 

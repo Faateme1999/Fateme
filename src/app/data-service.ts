@@ -19,4 +19,25 @@ this.PhoneNumberSource.next(number);
 
 
 
+selectedProducts2: any;
+  
+ 
+private selectedProducts:string[]=[];
+selectedProducts$=new BehaviorSubject<any[]>([]);
+
+
+
+setSelectedProduct(product:any){
+    this.selectedProducts.push(product);
+    this.selectedProducts$.next(this.selectedProducts);
+
+
+}
+
+
+getSelectedProductsCount(): number {
+  return this.selectedProducts.length;
+}
+
+
   }

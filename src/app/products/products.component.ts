@@ -14,7 +14,7 @@ export class ProductsComponent {
   products;
   id: any;
   idnumber: any;
-    constructor(private ProductService:ProductsService,private rout:ActivatedRoute, private router:Router,private dataService: DataService, private activeRoute:ActivatedRoute){
+    constructor(private ProductService:ProductsService,private rout:ActivatedRoute, private router:Router,public dataService: DataService, private activeRoute:ActivatedRoute){
     this.products= this.ProductService.getProductData(this.id);
     }
 
@@ -57,10 +57,14 @@ export class ProductsComponent {
 
     }
 
+    onProductClick(product:any){
+      this.dataService.setSelectedProduct(product);
+    }
+  
 
 
-};
 
+}
 
 
   
