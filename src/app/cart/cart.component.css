@@ -23,9 +23,53 @@ ul{
   }
  
 
+
 .countCart{
-    background-color: red;
-    color: white;
     position: absolute;
-    text-align: center;
+    padding-top: 20px;
+}
+
+.count{
+    color: white;
+    border-radius: 2px;
+    width: 15px;
+    background-color: red;
+}
+
+.btnshop{
+    width: 70px;
+ }
+
+ .plus{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 15px; 
+    
+}
+
+h6{
+    color: purple;
+}
+
+.price{
+    border: 1px solid lightgray;
+    border-radius: 10px 10px 0px 0px;
+    padding: 15px;
+}
+
+.club{
+    background-color: rgb(243, 241, 241); 
+    border: 1px solid lightgray;
+    border-radius:0px 0px 10px 10px;
+    height: 50px;
+    width: 428px;
+}
+
+.cartItemList{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.active{
+    font-weight: bold;
 }

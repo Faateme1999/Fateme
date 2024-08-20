@@ -4,16 +4,17 @@ import { codeValidator } from './code.validator';
 import { CodeServiceService } from './code-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize, interval, map, take, takeWhile } from 'rxjs';
-import { DataserviceComponent } from '../dataservice/dataservice.component';
 import { DataService } from '../data-service';
 
 @Component({
-  selector: 'code',
+  selector: 'app-code',
   templateUrl: './code.component.html',
   styleUrl: './code.component.css'
 })
 export class CodeComponent  implements OnInit {
-
+  
+  phoneNumber:string="";
+  
   constructor(private codeService:CodeServiceService,private rout:ActivatedRoute, private router:Router,private dataService:DataService){
     this.minutes = 3;
     this.seconds = 0;
@@ -24,6 +25,7 @@ export class CodeComponent  implements OnInit {
   form=new FormGroup({
     code: new FormControl('',[
       Validators.pattern(('^.{4}$')),
+      Validators.required,
     ],[
       codeValidator.checkCode
     ]),
@@ -47,8 +49,8 @@ export class CodeComponent  implements OnInit {
 
   ngOnInit() {
     const timer$ = interval(1000).pipe(
-      map((value) => 180 - value),
-      takeWhile(val => val >= 0),// ادامه دادن تایمر تا زمانی که زمان باقی‌مانده مثبت باشد
+      map((value) => 60 - value),
+      takeWhile(val => val >= 0),
     );
 
     timer$.subscribe((value) => {
@@ -60,7 +62,6 @@ export class CodeComponent  implements OnInit {
       }
     });
     
-
     this.dataService.currentPhoneNumber.subscribe(number=> this.phoneNumber=number); 
   }
 
@@ -88,19 +89,18 @@ export class CodeComponent  implements OnInit {
 
 
 
-  historynavigate(){
+  productNavigate(){
     if(this.form.valid){
-  this.router.navigate(['/history']);
+  this.router.navigate(['/product']);
     }
 
     if(this.form.pending){
-      alert("لطفا ۵ ثانیه صبر کنید");  
+      alert("\u23F3 لطفا ۵ ثانیه صبر کنید");  
       }
 
   }
 
 
-  phoneNumber:string="";
 
 
 

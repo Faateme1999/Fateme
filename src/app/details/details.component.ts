@@ -4,6 +4,10 @@ import { DetailsService } from './details.service';
 import { DataService } from '../data-service';
 import { ProductsService } from '../products/products.service';
 import { from, switchMap } from 'rxjs'
+import { CartService } from '../cart/cart.service';
+import { Product } from '../shared/product';
+import { CartItem } from '../shared/cartItem';
+import { Cart } from '../shared/cart';
 
 @Component({
   selector: 'app-details',
@@ -12,82 +16,65 @@ import { from, switchMap } from 'rxjs'
 })
 export class DetailsComponent implements OnInit {
 
-  productDetails: any;
-  products: { id: number; name: string; number: string; cost: string; rate: string; photo: string; }[] | undefined;
- 
-
-constructor(private DetailService:DataService, private activeRoute:ActivatedRoute, private router:Router ,private rout:ActivatedRoute,private dataService: DataService,private ProductService:ProductsService){
+ constructor(private detailservice:DetailsService, private activeRoute:ActivatedRoute, private router:Router ,private rout:ActivatedRoute,public dataService: DataService,private ProductService:ProductsService, public cartservice:CartService){
  }
 
 
 
-  ngOnInit(): void {
+product:Product=new Product;
+  
+
+ ngOnInit(): void {
 let id= +this.activeRoute.snapshot.params['id'];
 console.log(id);
-
-
-// this.ProductService.getProductData('id').subscribe((res:any)=>{
-//   this.productDetails=res});
-
-  this.products= this.ProductService.getProductData(id);
-  this.productDetails=this.products.find((product: { id: any; }) =>
-    product.id === id);
-
-  // this.productDetails=this.ProductService.getProductData(id);
-  
-
-
-
-// this.rout.paramMap.pipe(switchMap(params=>{
-//   const productId = +params.get('id')
-//  return this.ProductService.getProductData('productId');})).subscribe(product=>{
-//     this.products=product});
-// }
-
-
-
-
-  //   this.activeRoute.paramMap.subscribe(params=>{
-  //     this.id=params.get('id');
-  //     this.products= this.ProductService.getProductData(this.id);
-  // this.productDetails=this.products.find((product: { id: any; }) =>
-  //   product.id === this.id);
-  //   })
-
-  
-
-
-//      this.ActivatedRoute.params.subscribe(params=>{
-//   this.productId= +params['id'];
-//   this.product= this.ProductService.getProductById(this.productId);
-
-//  })
-
-
-
-    // this.activeRoute.queryParams.subscribe(params=>{
-    //   this.id=params['id'];
-    // })   
-
-  // }
-
-
-  // console(){
-  //   console.log(thid);
-    
-  // }
-
+this.product= this.ProductService.getproduct(id);
 }
 
+
+
+ProductCart(product:Product){
+  this.cartservice.addtoCart({productId:product.id,quantity:1,product:this.product,totalCost:product.cost})
 }
 
-  
+
+loginNavigate(){
+  this.router.navigate(['/login']);
+}
+
+ShopNavigate(){
+  this.router.navigate(['/cart']);
+}
+
+option="";
+navbar(value:string){
+  if(value==='checkout'){
+    this.router.navigate(['/checkout']);
+  }
+else if(value==='product'){
+  this.router.navigate(['/product']);
+}
+else if(value==='login'){
+  this.router.navigate(['/login']);
+}
+}
+
+
+user="";
+navbarUser(value:string){
+  if(value==='checkout'){
+    this.router.navigate(['/checkout']);
+  }
+else if(value==='product'){
+  this.router.navigate(['/product']);
+}
+else if(value==='login'){
+  this.router.navigate(['/login']);
+}
+else if(value==='cart'){
+  this.router.navigate(['/cart']);
+}
+}
+}
 
 
 
-// export class productDetails{
-//   name:string="";
-//   id:any="";
-//   cost:string="";
-//   rate:string="";
-// }

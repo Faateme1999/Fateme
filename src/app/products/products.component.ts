@@ -3,6 +3,10 @@ import { ProductsService } from './products.service';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { DataService } from '../data-service';
 import { DetailsComponent } from '../details/details.component';
+import { CartService } from '../cart/cart.service';
+import { CartItem } from '../shared/cartItem';
+import { Product } from '../shared/product';
+import { Cart } from '../shared/cart';
 
 @Component({
   selector: 'app-products',
@@ -13,9 +17,14 @@ export class ProductsComponent {
     
   products;
   id: any;
-  idnumber: any;
-    constructor(private ProductService:ProductsService,private rout:ActivatedRoute, private router:Router,public dataService: DataService, private activeRoute:ActivatedRoute){
+  product:Product=new Product;
+
+    constructor(private ProductService:ProductsService,private rout:ActivatedRoute, private router:Router,public dataService: DataService, private activeRoute:ActivatedRoute,public cartservice:CartService){
     this.products= this.ProductService.getProductData(this.id);
+    }
+
+
+    ngOnInit(): void {
     }
 
     navigate(){
@@ -34,10 +43,11 @@ export class ProductsComponent {
       this.router.navigate(['/cart']);
     }
 
+
     option="";
     navbar(value:string){
-      if(value==='history'){
-        this.router.navigate(['/history']);
+      if(value==='checkout'){
+        this.router.navigate(['/checkout']);
       }
     else if(value==='product'){
       this.router.navigate(['/product']);
@@ -48,19 +58,26 @@ export class ProductsComponent {
     }
 
 
-
-
-    ngOnInit(): void {
-      this.activeRoute.queryParams.subscribe(params=>{
-        this.idnumber=params['id'];
-      })  
-
+   
+   
+  user="";
+  navbarUser(value:string){
+    if(value==='checkout'){
+      this.router.navigate(['/checkout']);
     }
+  else if(value==='product'){
+    this.router.navigate(['/product']);
+  }
+  else if(value==='login'){
+    this.router.navigate(['/login']);
+  }
+  else if(value==='cart'){
+    this.router.navigate(['/cart']);
+  }
+  }
 
-    onProductClick(product:any){
-      this.dataService.setSelectedProduct(product);
-    }
-  
+
+
 
 
 

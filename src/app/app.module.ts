@@ -11,22 +11,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LoginService } from './login/login-service.service';
 import { CodeServiceService } from './code/code-service.service';
-import { OrderHistoryComponent } from './order-history/order-history.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
-import { DataserviceComponent } from './dataservice/dataservice.component';
 import { DetailsComponent } from './details/details.component';
+import { CartService } from './cart/cart.service';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CodeComponent,
-    OrderHistoryComponent,
     ProductsComponent,
     CartComponent,
-    DataserviceComponent,
-    DetailsComponent
+    DetailsComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +36,14 @@ import { DetailsComponent } from './details/details.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
-      {path:'login',component:LoginComponent},{path:'code',component:CodeComponent},{path:'history',component:OrderHistoryComponent},{path:'product',component:ProductsComponent},{path:'product/:id',component:DetailsComponent},{path:'cart',component:CartComponent}
-    ])
+      {path:'login',component:LoginComponent},{path:'code',component:CodeComponent},{path:'product',component:ProductsComponent},{path:'product/:id',component:DetailsComponent},{path:'cart',component:CartComponent},{path:'checkout',component:CheckoutComponent}
+    ]),
+    ToastrModule.forRoot(),
+    ToastNoAnimationModule.forRoot(),
   ],
-  providers: [LoginService,CodeServiceService,
+  providers: [LoginService,CodeServiceService,CartService,
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

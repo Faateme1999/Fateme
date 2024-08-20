@@ -28,10 +28,6 @@ ul{
     list-style: none;
 }
 
-a:hover{
-    color: red ; text-decoration:underline;
- }
-
  .card{
     width: 200px;
  }
@@ -55,10 +51,27 @@ a:hover{
     margin: 0px 1100px 0px 0px;
  }
 
-.countCart{
-    /* background-color: red; */
-    color: red;
+a{
+    text-decoration:none;
+  }
+
+  .countCart{
     position: absolute;
-    text-align: center;
-    padding-top: 15px;
+    padding-top: 20px;
 }
+
+.count{
+    color: white;
+    border-radius: 2px;
+    width: 15px;
+    background-color: red;
+}
+
+.btnshop{
+    width: 70px;
+ }
+
+.active{
+    font-weight: bold;
+}
+

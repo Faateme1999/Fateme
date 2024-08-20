@@ -1,2 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+@font-face {
+    font-family: 'vazir-font-v16.1.0(1)';
+    src: url('assets/fonts/vazir-font-v16.1.0 (1)/vazir-font-v16.1.0/Vazir.ttf')
+    format('truetype');
+    font-weight:bolder;
+    font-style:normal;
+
+}
+
+body{
+    font-family: 'vazir-font-v16.1.0(1)';
+    font-size:medium;
+} 
+
+

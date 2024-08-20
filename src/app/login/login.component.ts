@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { confirmPhoneValidator } from './phone.validator';
 import { LoginService } from './login-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataserviceComponent } from '../dataservice/dataservice.component';
 import { DataService } from '../data-service';
 
 @Component({
@@ -21,7 +20,7 @@ export class LoginComponent {
       Validators.pattern(/^(09(0[1-9]|1[0-9]|2[1-9]|3[1-9])-?[0-9]{3}-?[0-9]{4}|[a-z0-9._%+-]+@[a-z0-9.-]+\.(com|ir))$/),
     ],
     [
-      // confirmPhoneValidator.checkPhone,
+      confirmPhoneValidator.checkPhone,
     ]),
   });
   
@@ -37,14 +36,14 @@ export class LoginComponent {
     this.router.navigate(['/code'])
     }
   if (this.form.invalid) {
-    alert("حساب کاربری با مشخصات وارد شده وجود ندارد")
+    alert("حساب کاربری با مشخصات وارد شده وجود ندارد \u2716")
   } 
   else {
   (this.form.pending)
-    alert("لطفا ۵ ثانیه صبر کنید")
+    alert(" \u23F3 لطفا ۵ ثانیه صبر کنید")
   }
   }
-
+  
 
   get phone(){
     return this.form.get('phone');
