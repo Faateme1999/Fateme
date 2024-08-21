@@ -49,7 +49,7 @@ getCartItemsCount(): number {
   return this.cart.length;
 }
 
-private totalprice=0;
+
 
 getTotalPrice() { 
   return this.cart.reduce((total, item) => {
